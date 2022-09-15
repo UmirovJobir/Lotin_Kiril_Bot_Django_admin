@@ -23,6 +23,23 @@ services:
     env_file:
       - .env
 
+  # telegram_bot:
+  #   build: .
+  #     #context: .
+  #     #dockerfile: ./Dockerfile
+  #   container_name: telegram_bot
+  #   command: python bot/translate.py
+  #   volumes: 
+  #     - .:/usr/src/app
+  #     - ./static:/usr/src/app/static
+  #   restart: always
+  #   ports: 
+  #     - "5000:5000"
+
+  #   depends_on: 
+  #     - web
+
+
 volumes:
     lotin_kiril_data:
     app:
