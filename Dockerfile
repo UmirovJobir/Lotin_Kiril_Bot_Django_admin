@@ -1,9 +1,9 @@
-FROM python:3.10
+FROM python:3.7
 
-ENV PYTHONUNBUFFERED=1
+# ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
-COPY requirements.txt ./app
+# COPY requirements.txt ./app
 COPY . . 
 
 RUN apt-get update \
