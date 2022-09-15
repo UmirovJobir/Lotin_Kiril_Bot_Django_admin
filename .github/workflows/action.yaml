@@ -1,0 +1,28 @@
+name: Second Server Deploy
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Executing remote command
+      uses: appleboy/ssh-action@master
+      with:
+        host: 62.209.129.42
+        USERNAME: Bunyod
+        PASSWORD: Q+a+z_&#agro_news
+        PORT: 22
+        script: |
+          cd ~
+          cd admin
+          git pull
+          
+          docker-compose down
+          docker-compose build
+          docker-compose up
+      
+      

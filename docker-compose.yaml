@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  lotin_kiril_data:
+    image: postgres:10
+    container_name: lotin_kiril_data
+    environment:
+      - POSTGRES_DB=lotin_kiril
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  
+   
+  web:
+    build: .
+    container_name: lotin_kiril_web
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - lotin_kiril_data
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+
+volumes:
+    lotin_kiril_data:
+    app:
+
+
+
+
