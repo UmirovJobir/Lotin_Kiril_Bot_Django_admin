@@ -3,7 +3,7 @@ version: "3.8"
 services:
   db:
     image: postgres:10
-    container_name: lotin_kiril_db
+    container_name: db
     environment:
       - POSTGRES_DB=lotin_kiril
       - POSTGRES_USER=postgres
@@ -16,7 +16,7 @@ services:
    
   web:
     build: .
-    container_name: lotin_kiril_web
+    container_name: web
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
