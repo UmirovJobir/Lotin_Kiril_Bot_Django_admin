@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  db:
+  db_name:
     image: postgres:10
     container_name: db
     environment:
@@ -10,8 +10,8 @@ services:
       - POSTGRES_PASSWORD=123
     volumes:
       - ./data:/var/lib/postgresql/data
-    # ports:
-    #   - "5432:5432"
+    ports:
+      - "5432:5432"
   
    
   web:
@@ -27,7 +27,7 @@ services:
     #   - POSTGRES_USER=postgres
     #   - POSTGRES_PASSWORD=123
     depends_on:
-      - db
+      - db_name
     env_file:
       - .env
 
@@ -45,7 +45,7 @@ services:
       - web
 
 volumes:
-    db:
+    db_name:
     web:
 
 
