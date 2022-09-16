@@ -33,9 +33,9 @@ services:
     build: .
     container_name: telegram_bot
     command: python bot/translate.py
-    volumes: 
-      - .:/usr/src/app
-      - ./static:/usr/src/app/static
+    # volumes: 
+    #   - .:/usr/src/app
+    #   - ./static:/usr/src/app/static
     restart: always
     ports: 
       - "5000:5000"
