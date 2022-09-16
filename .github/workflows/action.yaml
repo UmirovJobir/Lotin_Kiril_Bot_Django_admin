@@ -18,7 +18,7 @@ jobs:
         PORT: 22
         script: |
           cd ~
-          cd Lotin-Kiril-Bot-Django-admin-
+          cd admin
           git pull
           
           docker-compose down
