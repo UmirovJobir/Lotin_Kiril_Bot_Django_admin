@@ -3,7 +3,7 @@ version: "3.8"
 services:
   db_name:
     image: postgres:10
-    container_name: db
+    container_name: db_lotin_kiril
     environment:
       - POSTGRES_DB=lotin_kiril
       - POSTGRES_USER=postgres
