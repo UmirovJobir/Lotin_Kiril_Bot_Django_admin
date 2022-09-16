@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  lotin_kiril_data:
+  db:
     image: postgres:10
     container_name: lotin_kiril_data
     environment:
@@ -10,41 +10,41 @@ services:
       - POSTGRES_PASSWORD=123
     volumes:
       - ./data:/var/lib/postgresql/data
-   
-
+  
    
   web:
     build: .
     container_name: lotin_kiril_web
     command: python manage.py runserver 0.0.0.0:8000
-    depends_on:
-      - lotin_kiril_data
+    volumes:
+      - .:/code
     ports:
       - "8000:8000"
+    environment:
+      - POSTGRES_DB=lotin_kiril
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+    depends_on:
+      - db
     env_file:
       - .env
 
-
-  # telegram_bot:
-  #   build: .
-  #     #context: .
-  #     #dockerfile: ./Dockerfile
-  #   container_name: telegram_bot
-  #   command: python bot/translate.py
-  #   volumes: 
-  #     - .:/usr/src/app
-  #     - ./static:/usr/src/app/static
-  #   restart: always
-  #   ports: 
-  #     - "5000:5000"
-
-  #   depends_on: 
-  #     - web
-
+  telegram_bot:
+    build: .
+    container_name: telegram_bot
+    command: python bot/translate.py
+    volumes: 
+      - .:/usr/src/app
+      - ./static:/usr/src/app/static
+    restart: always
+    ports: 
+      - "5000:5000"
+    depends_on: 
+      - web
 
 volumes:
-    lotin_kiril_data:
-    app:
+    db:
+    web:
 
 
 

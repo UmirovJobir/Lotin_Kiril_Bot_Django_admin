@@ -12,9 +12,9 @@ jobs:
     - name: Executing remote command
       uses: appleboy/ssh-action@master
       with:
-        host: 172.104.143.233
-        USERNAME: root
-        PASSWORD: jobir2000JOBIR
+        host: 92.53.96.41
+        USERNAME: uzdevid_abhrbot
+        PASSWORD: 7dJQ7sJT
         PORT: 22
         script: |
           cd ~
