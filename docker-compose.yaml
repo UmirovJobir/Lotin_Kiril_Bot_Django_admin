@@ -27,7 +27,7 @@ services:
     #   - POSTGRES_USER=postgres
     #   - POSTGRES_PASSWORD=123
     depends_on:
-      - db
+      - lotin_kiril_data
     env_file:
       - .env
 
@@ -45,7 +45,7 @@ services:
       - web
 
 volumes:
-    db:
+    lotin_kiril_data:
     web:
 
 
