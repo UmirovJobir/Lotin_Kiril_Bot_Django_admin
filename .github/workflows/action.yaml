@@ -12,13 +12,13 @@ jobs:
     - name: Executing remote command
       uses: appleboy/ssh-action@master
       with:
-        host: 92.53.96.41
-        USERNAME: uzdevid_abhrbot
-        PASSWORD: 7dJQ7sJT
-        PORT: 21
+        host: 172.104.143.233
+        USERNAME: root
+        PASSWORD: jobir2000JOBIR
+        PORT: 22
         script: |
           cd ~
-          cd public_html/admin
+          cd Lotin-Kiril-Bot-Django-admin-
           git pull
           
           docker-compose down
