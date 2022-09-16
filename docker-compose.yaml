@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  db:
+  lotin_kiril_data:
     image: postgres:10
     container_name: lotin_kiril_data
     environment:
@@ -10,6 +10,8 @@ services:
       - POSTGRES_PASSWORD=123
     volumes:
       - ./data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
   
    
   web:
@@ -20,10 +22,10 @@ services:
       - .:/code
     ports:
       - "8000:8000"
-    environment:
-      - POSTGRES_DB=lotin_kiril
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=123
+    # environment:
+    #   - POSTGRES_DB=lotin_kiril
+    #   - POSTGRES_USER=postgres
+    #   - POSTGRES_PASSWORD=123
     depends_on:
       - db
     env_file:
