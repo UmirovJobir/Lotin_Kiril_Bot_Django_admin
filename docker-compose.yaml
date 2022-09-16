@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  db_name:
+  db:
     image: postgres:10
-    container_name: db_lotin_kiril
+    container_name: lotin_kiril_db
     environment:
       - POSTGRES_DB=lotin_kiril
       - POSTGRES_USER=postgres
@@ -12,7 +12,6 @@ services:
       - ./data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-  
    
   web:
     build: .
@@ -22,12 +21,12 @@ services:
       - .:/code
     ports:
       - "8000:8000"
-    # environment:
-    #   - POSTGRES_DB=lotin_kiril
-    #   - POSTGRES_USER=postgres
-    #   - POSTGRES_PASSWORD=123
+    environment:
+      - POSTGRES_DB=lotin_kiril
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
     depends_on:
-      - db_name
+      - db
     env_file:
       - .env
 
@@ -35,9 +34,9 @@ services:
     build: .
     container_name: telegram_bot
     command: python bot/translate.py
-    volumes: 
-      - .:/usr/src/app
-      - ./static:/usr/src/app/static
+    # volumes: 
+    #   - .:/usr/src/app
+    #   - ./static:/usr/src/app/static
     restart: always
     ports: 
       - "5000:5000"
@@ -45,7 +44,7 @@ services:
       - web
 
 volumes:
-    db_name:
+    db:
     web:
 
 
