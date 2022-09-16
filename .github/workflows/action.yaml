@@ -17,9 +17,8 @@ jobs:
         PASSWORD: jobir2000JOBIR
         PORT: 22
         script: |
-        
           cd ~
-          cd Lotin-Kiril-Bot-Django-admin-
+          cd Lotin_Kiril_Bot_Django_admin
           git pull
           
           docker-compose down
