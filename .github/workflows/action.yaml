@@ -15,7 +15,7 @@ jobs:
         host: 92.53.96.41
         USERNAME: uzdevid_abhrbot
         PASSWORD: 7dJQ7sJT
-        PORT: 22
+        PORT: 21
         script: |
           cd public_html
           cd admin
