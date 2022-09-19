@@ -29,7 +29,7 @@ RUN apt-get update \
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-EXPOSE 8000
+# EXPOSE 8000
 
-COPY entrypoint.sh .
-ENTRYPOINT [ "sh", "./entrypoint.sh" ]
+# COPY entrypoint.sh .
+# ENTRYPOINT [ "sh", "./entrypoint.sh" ]
