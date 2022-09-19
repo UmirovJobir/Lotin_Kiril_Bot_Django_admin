@@ -27,7 +27,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123
     depends_on:
-      - db
+      - pgdb
     env_file:
       - .env
 
