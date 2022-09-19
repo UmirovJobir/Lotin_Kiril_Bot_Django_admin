@@ -1,9 +1,10 @@
 version: "3.8"
 
 services:
-  db:
+  pgdb:
     image: postgres:10
     container_name: lotin_kiril_db
+    hostname: pgdb
     environment:
       - POSTGRES_DB=lotin_kiril
       - POSTGRES_USER=postgres
