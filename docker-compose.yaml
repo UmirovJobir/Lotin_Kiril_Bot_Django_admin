@@ -18,14 +18,8 @@ services:
     build: .
     container_name: web
     command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code
     ports:
       - "8000:8000"
-    environment:
-      - POSTGRES_DB=lotin_kiril
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=123
     depends_on:
       - pgdb
     env_file:
@@ -45,8 +39,8 @@ services:
       - web
 
 volumes:
-    db:
-    web:
+    pgdb:
+
 
 
 
