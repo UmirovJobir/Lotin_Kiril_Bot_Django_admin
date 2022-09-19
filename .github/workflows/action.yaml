@@ -1,28 +1,28 @@
-name: Second Server Deploy
+# name: Second Server Deploy
 
-on: [push]
+# on: [push]
 
-jobs:
-  build:
+# jobs:
+#   build:
 
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
 
-    steps:
+#     steps:
 
-    - name: Executing remote command
-      uses: appleboy/ssh-action@master
-      with:
-        host: 172.104.143.233
-        USERNAME: root
-        PASSWORD: jobir2000JOBIR
-        PORT: 22
-        script: |
-          cd ~
-          cd Lotin_Kiril_Bot_Django_admin
-          git pull
+#     - name: Executing remote command
+#       uses: appleboy/ssh-action@master
+#       with:
+#         host: 172.104.143.233
+#         USERNAME: root
+#         PASSWORD: jobir2000JOBIR
+#         PORT: 22
+#         script: |
+#           cd ~
+#           cd Lotin_Kiril_Bot_Django_admin
+#           git pull
           
-          docker-compose down
-          docker-compose build
-          docker-compose up
+#           docker-compose down
+#           docker-compose build
+#           docker-compose up
       
       
