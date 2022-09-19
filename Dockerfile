@@ -47,5 +47,5 @@ RUN python manage.py makemigrations
 RUN python manage.py migrate
 
 RUN chmod +x entrypoint.sh
-COPY entrypoint.sh .
-ENTRYPOINT ["sh", "entrypoint.sh"]
+COPY entrypoint.sh /usr/src/app
+ENTRYPOINT ["sh", "/usr/src/app/entrypoint.sh"]
