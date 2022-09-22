@@ -1,15 +1,15 @@
 version: "3.8"
 
 services:
-  # pgdb:
-  #   image: postgres:10
-  #   container_name: lotin_kiril_db
-  #   environment:
-  #     - POSTGRES_DB=lotin_kiril
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=123
-  #   volumes:
-  #     - ./data:/var/lib/postgresql/data
+  pgdb:
+    image: postgres:10
+    container_name: lotin_kiril_db
+    environment:
+      - POSTGRES_DB=lotin_kiril
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+    volumes:
+      - ./data:/var/lib/postgresql/data
   
   web:
     build: .
